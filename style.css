@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(image/lambo.bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.container{
+    width: 100%;
+    padding-right: 8%;
+    padding-left: 8%;
+}
+.navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    height: 150px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+.icon{
+    cursor: pointer;
+    margin-left: 40px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+.col{
+    flex-basis: 50%;
+}
+h1{
+    font-size: 100px;
+    color: black;
+}
+p{
+    color: white;
+    font-size: 15px;
+    line-height: 15px;
+    width: 90%;
+}
+button{
+    width: 180px;
+    font-size:1.3rem;
+    padding: 12px 0;
+    border: 1px solid white;
+    border-radius: 20px;
+    background-color: #000;
+    color: white;
+}
+button:hover{
+    background-color: #9BB7FD;
+    border: 1px solid black;
+}
+.card-col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.card{
+    width: 400px;
+    aspect-ratio: 1 / 0.7; /* ! sets the width-to-height ratio of an element . every 1 unit of width, the element will have 0.7 units of height. */
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.card:hover{
+    box-shadow: 3px 10px 10px rgb(24, 21, 21);
+}
+.card .image-box{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;  /* !  CSS rule makes an element inherit its border-radius from its parent element. This means that the child element will have the same rounded corners as its parent. */
+}
+.card .image-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 90%; /* ! ets the position of a replaced element (like an <img>) within its container, especially when it’s being cropped or doesn't fill the container completely. */
+    border-radius: inherit;
+    transition: 0.5s ease-in-out;
+}
+.card .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content h2, 
+.content h3{
+    opacity: 0;
+    transition: 0.4s ease;
+    color: white;
+}
+.content h2{
+    margin-bottom: 12px;
+    scale: 0.7;  /* ! scale function in the transform property resizes an element. A value of 0.7 means the element is scaled to 70% of its original size in both width and height */
+}
+.content h3{
+    line-height: 1.5;
+    transform: translateY(50%);
+}
+.card:hover .content h2{
+    scale: 1;
+    opacity: 1;
+}
+.card:hover .content h3{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* *---------------------------------------------Media querry----------------------------------- */
+
+@media (max-width: 1665px){
+    .row{
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .col{
+        text-align: center;
+    }
+    .col h1{
+        margin-top: 5%;
+    }
+    .card-col{
+        display: flex;
+        min-height: 40vh;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    .content h2{
+        font-size: medium;
+    }
+}
+@media (max-width: 1060px){
+    .icon{
+        display: none;
+    }
+    body{
+        background-position: center;
+    }
+}
+@media (max-width: 822px){
+    h1{
+        font-size: 70px;
+    }
+    .content h2,h3{
+        font-size: small;
+    }
+}
+@media (max-width: 554px){
+    body{
+        background-size: cover; 
+        background-position: center; 
+        background-attachment: fixed;
+    }
+    .content h2,h3{
+        font-size: larger;
+    }
+    h1{
+        font-size: 50px;
+    }
+    nav ul{
+        display: none;
+    }
+    .icon{
+        display: block;
+    }
+    .card-col{
+        display: inline-block;
+    }
+    .card{
+        margin-top: 10%;
+    }
+    .logo{
+        position: relative;
+        left: 20%;
+    }
+}
